@@ -1,0 +1,28 @@
+{
+  "name": "Comment",
+  "type": "object",
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "title": "ID del reporte"
+    },
+    "user_name": {
+      "type": "string",
+      "title": "Nombre del usuario"
+    },
+    "user_email": {
+      "type": "string",
+      "title": "Correo del usuario"
+    },
+    "content": {
+      "type": "string",
+      "title": "Contenido del comentario"
+    }
+  },
+  "required": [
+    "report_id",
+    "user_name",
+    "user_email",
+    "content"
+  ]
+}

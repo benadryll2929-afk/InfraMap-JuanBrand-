@@ -1,0 +1,32 @@
+{
+  "name": "EmailLog",
+  "type": "object",
+  "properties": {
+    "recipient_email": {
+      "type": "string",
+      "title": "Correo del destinatario"
+    },
+    "flow_type": {
+      "type": "string",
+      "title": "Tipo de flujo",
+      "enum": [
+        "registro_otp",
+        "restablecer_contrasena"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "title": "Estado del env\u00edo",
+      "enum": [
+        "enviado",
+        "error"
+      ],
+      "default": "enviado"
+    }
+  },
+  "required": [
+    "recipient_email",
+    "flow_type",
+    "status"
+  ]
+}

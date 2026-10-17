@@ -1,0 +1,92 @@
+{
+  "name": "Report",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "T\u00edtulo del da\u00f1o"
+    },
+    "description": {
+      "type": "string",
+      "title": "Descripci\u00f3n del da\u00f1o"
+    },
+    "photo_url": {
+      "type": "string",
+      "title": "Foto del da\u00f1o (URL)"
+    },
+    "severity": {
+      "type": "string",
+      "title": "Gravedad",
+      "enum": [
+        "verde",
+        "naranja",
+        "rojo"
+      ],
+      "description": "verde=Sin problema, naranja=Medio, rojo=Urgente"
+    },
+    "category": {
+      "type": "string",
+      "title": "Categor\u00eda",
+      "enum": [
+        "El\u00e9ctrico",
+        "Sanitario",
+        "Mobiliario",
+        "Infraestructura",
+        "Otro"
+      ],
+      "default": "Otro"
+    },
+    "status": {
+      "type": "string",
+      "title": "Estado",
+      "enum": [
+        "pendiente",
+        "resuelto"
+      ],
+      "default": "pendiente"
+    },
+    "map_x": {
+      "type": "number",
+      "title": "Posici\u00f3n X en el mapa (%)"
+    },
+    "map_y": {
+      "type": "number",
+      "title": "Posici\u00f3n Y en el mapa (%)"
+    },
+    "location_label": {
+      "type": "string",
+      "title": "Nombre del lugar (ej: Sal\u00f3n 5, Ba\u00f1o Hombres)"
+    },
+    "reporter_name": {
+      "type": "string",
+      "title": "Nombre del reportante"
+    },
+    "reporter_email": {
+      "type": "string",
+      "title": "Correo del reportante"
+    },
+    "resolved_photo_url": {
+      "type": "string",
+      "title": "Foto de la reparaci\u00f3n (URL)"
+    },
+    "resolved_notes": {
+      "type": "string",
+      "title": "Notas de resoluci\u00f3n del administrador"
+    },
+    "upvotes": {
+      "type": "array",
+      "title": "Apoyos (emails de usuarios)",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "severity",
+    "status",
+    "reporter_name",
+    "reporter_email"
+  ]
+}

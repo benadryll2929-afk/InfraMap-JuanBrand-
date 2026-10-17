@@ -1,0 +1,38 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "title": "Mensaje de notificaci\u00f3n"
+    },
+    "report_id": {
+      "type": "string",
+      "title": "ID del reporte relacionado"
+    },
+    "reporter_name": {
+      "type": "string",
+      "title": "Nombre del reportante"
+    },
+    "report_title": {
+      "type": "string",
+      "title": "T\u00edtulo del reporte"
+    },
+    "location_label": {
+      "type": "string",
+      "title": "Lugar del reporte"
+    },
+    "is_read": {
+      "type": "boolean",
+      "title": "\u00bfLe\u00edda?",
+      "default": false
+    }
+  },
+  "required": [
+    "message",
+    "report_id",
+    "reporter_name",
+    "report_title",
+    "is_read"
+  ]
+}
