@@ -17,7 +17,6 @@ export default function ResolveModal({ report, onClose, onResolved }) {
 
   const handleConfirm = async () => {
     setLoading(true);
-    let emailSendError = "";
 
     try {
       let resolved_photo_url = "";
@@ -31,22 +30,6 @@ export default function ResolveModal({ report, onClose, onResolved }) {
         resolved_photo_url,
         resolved_notes: notes,
       });
-
-      const notesLine = notes
-        ? `\n\n📝 Nota del administrador:\n"${notes}"`
-        : "";
-
-      try {
-        await base44.integrations.Core.SendEmail({
-          to: report.reporter_email,
-          subject: "✅ Tu reporte ha sido resuelto — InfraMap",
-          body: `Hola ${report.reporter_name?.split(" ")[0] || ""},\n\n¡Buenas noticias! 🎉 Tu reporte ha sido atendido y resuelto.\n\n📌 Reporte: "${report.title}"\n📍 Ubicación: ${report.location_label || "el colegio"}${notesLine}\n\nGracias por contribuir al cuidado de nuestro colegio. Tu participación hace la diferencia.\n\nEntra a InfraMap para ver el resultado de la reparación.\n\nCon cariño,\nEl equipo de InfraMap 💙`,
-        });
-      } catch (error) {
-        console.error("El reporte se resolvió, pero no se pudo enviar el correo:", error);
-        emailSendError = error.message || "No se pudo enviar el correo de aviso.";
-      }
-
       try {
         await base44.entities.Notification.create({
           message: `✅ Tu reporte "${report.title}" en ${report.location_label || "el colegio"} ha sido marcado como resuelto.`,
@@ -63,7 +46,6 @@ export default function ResolveModal({ report, onClose, onResolved }) {
 
       onResolved(updated);
       onClose();
-      if (emailSendError) window.alert(emailSendError);
     } catch (error) {
       console.error("No se pudo resolver el reporte:", error);
       window.alert(error.message || "No se pudo resolver el reporte. Inténtalo de nuevo.");
