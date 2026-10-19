@@ -21,7 +21,7 @@ import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Privacidad from './pages/Privacidad';  
-   import Terminos from './pages/Terminos';
+import Terminos from './pages/Terminos';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const slideProps = {
