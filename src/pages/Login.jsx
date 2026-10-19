@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LogIn, Mail, Lock, Loader2 } from "lucide-react";
 import AuthLayout from "@/components/AuthLayout";
-import GoogleIcon from "@/components/GoogleIcon";
 import { isAllowedEmail } from "@/lib/userAccess";
 
 export default function Login() {
@@ -33,15 +32,6 @@ export default function Login() {
     }
   };
 
-  const handleGoogle = async () => {
-    setError("");
-    try {
-      await base44.auth.loginWithProvider("google", "/");
-    } catch (err) {
-      setError(err.message || "No se pudo iniciar sesión con Google");
-    }
-  };
-
   return (
     <AuthLayout
       icon={LogIn}
@@ -56,24 +46,6 @@ export default function Login() {
         </>
       }
     >
-      <Button
-        variant="outline"
-        className="w-full h-12 text-sm font-medium mb-6"
-        onClick={handleGoogle}
-      >
-        <GoogleIcon className="w-5 h-5 mr-2" />
-        Continuar con Google
-      </Button>
-
-      <div className="relative mb-6">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-border" />
-        </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-card px-3 text-muted-foreground">o</span>
-        </div>
-      </div>
-
       {error && (
         <div className="mb-4 p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
           {error}
@@ -130,6 +102,16 @@ export default function Login() {
           )}
         </Button>
       </form>
+
+      <p className="text-center text-xs text-muted-foreground mt-6">
+        <Link to="/terminos" className="hover:underline">
+          Condiciones del servicio
+        </Link>
+        {" · "}
+        <Link to="/privacidad" className="hover:underline">
+          Política de privacidad
+        </Link>
+      </p>
     </AuthLayout>
   );
 }

@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { UserPlus, Mail, Lock, Loader2 } from "lucide-react";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import AuthLayout from "@/components/AuthLayout";
-import GoogleIcon from "@/components/GoogleIcon";
 import { toast } from "@/components/ui/use-toast";
 import { isAllowedEmail } from "@/lib/userAccess";
 
@@ -69,15 +68,6 @@ export default function Register() {
       });
     } catch (err) {
       setError(err.message || "Error al reenviar el código");
-    }
-  };
-
-  const handleGoogle = async () => {
-    setError("");
-    try {
-      await base44.auth.loginWithProvider("google", "/");
-    } catch (err) {
-      setError(err.message || "No se pudo iniciar sesión con Google");
     }
   };
 
@@ -149,24 +139,6 @@ export default function Register() {
         </>
       }
     >
-      <Button
-        variant="outline"
-        className="w-full h-12 text-sm font-medium mb-6"
-        onClick={handleGoogle}
-      >
-        <GoogleIcon className="w-5 h-5 mr-2" />
-        Continuar con Google
-      </Button>
-
-      <div className="relative mb-6">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-border" />
-        </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-card px-3 text-muted-foreground">o</span>
-        </div>
-      </div>
-
       {error && (
         <div className="mb-4 p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
           {error}
@@ -233,6 +205,17 @@ export default function Register() {
             "Crear cuenta"
           )}
         </Button>
+        <p className="text-center text-xs text-muted-foreground">
+          Al crear tu cuenta aceptas las{" "}
+          <Link to="/terminos" className="text-primary hover:underline">
+            condiciones del servicio
+          </Link>{" "}
+          y la{" "}
+          <Link to="/privacidad" className="text-primary hover:underline">
+            política de privacidad
+          </Link>
+          .
+        </p>
       </form>
     </AuthLayout>
   );
