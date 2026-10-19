@@ -21,6 +21,7 @@ import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Privacidad from './pages/Privacidad';  
+   import Terminos from './pages/Terminos';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const slideProps = {
@@ -81,6 +82,7 @@ const AuthenticatedApp = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
            <Route path="/privacidad" element={<Privacidad />} />
+             <Route path="/terminos" element={<Terminos />} />
 
         {/* Protected app routes */}
         <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/login" replace />} />}>
