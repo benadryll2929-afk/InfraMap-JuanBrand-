@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.inframap.app",
+        "sha256_cert_fingerprints": ["68:A8:3F:5B:FC:58:79:70:C5:62:95:1E:40:D7:14:7E:DB:DC:9E:CE:F9:1C:E4:F7:B1:2F:92:0A:0E:36:4D:BF"]
+      }
+    }]
