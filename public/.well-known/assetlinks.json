@@ -3,6 +3,6 @@
       "target": {
         "namespace": "android_app",
         "package_name": "com.inframap.app",
-        "sha256_cert_fingerprints": ["68:A8:3F:5B:FC:58:79:70:C5:62:95:1E:40:D7:14:7E:DB:DC:9E:CE:F9:1C:E4:F7:B1:2F:92:0A:0E:36:4D:BF"]
+        "sha256_cert_fingerprints": ["95:5D:7D:0B:EB:B7:72:47:E3:DE:D8:E0:CA:1C:54:57:83:4B:F4:30:94:0A:0C:4C:7D:2D:F1:F0:E7:81:2F:97"]
       }
     }]
